@@ -113,7 +113,7 @@ const Header = () => {
   };
 
   const navigationItems = [
-    { label: 'Home', path: '/', icon: ViewIcon },
+    { label: 'Home', path: '/home2', icon: ViewIcon },
     { label: 'Global', path: '/globalt', icon: StarIcon },
     { label: 'About Us', path: '/about', icon: InfoIcon },
     { label: 'Contact Us', path: '/contact', icon: PhoneIcon },

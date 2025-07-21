@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Box,
   Container,
@@ -12,66 +12,137 @@ import {
   Image,
   VStack,
   HStack,
-  keyframes
+  useToast,
+  useBreakpointValue,
+  keyframes,
+  Stack
 } from '@chakra-ui/react';
-import img from "../Assests/CC.png"
-
+import img from '../Assests/CC.png';
 
 const ContactUs = () => {
-    const colorChange = keyframes`
-  0% { filter: hue-rotate(0deg); }
-  100% { filter: hue-rotate(360deg); }
-`;
+  const toast = useToast();
+
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+
+  const handleInputChange = (e) => {
+    const { id, value } = e.target;
+    setFormData((prev) => ({ ...prev, [id]: value }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // You can integrate email sending logic here.
+
+    toast({
+      title: 'Message Sent!',
+      description: "We've received your message and will be in touch shortly.",
+      status: 'success',
+      duration: 3000,
+      isClosable: true,
+      position: 'top',
+    });
+
+    setFormData({ name: '', email: '', message: '' });
+  };
+
+  const colorChange = keyframes`
+    0% { filter: hue-rotate(0deg); }
+    100% { filter: hue-rotate(360deg); }
+  `;
+
+  const isMobile = useBreakpointValue({ base: true, md: false });
+
   return (
-    <>
-  <HStack gap={40}>
- 
-  <Box bg="gray.800" color="white" minH="100vh" ml={180} mt={-9} py={10}>
-      <Container maxW="md">
-        <HStack spacing={4} align="center" justify="space-between" mb={3}>
-          <VStack spacing={6} align="flex-start">
-            <Heading as="h1" textAlign="left">
-              Contact Us
-            </Heading>
-            <Text textAlign="left" fontSize="lg">
-              We would love to hear from you! Fill out the form below to get in touch.
-            </Text>
-          </VStack>
-         
-        </HStack>
-        <Box bg="gray.700" p={8} borderRadius="md">
-          <VStack spacing={4}>
-            <FormControl id="name" isRequired>
-              <FormLabel>Name</FormLabel>
-              <Input placeholder="Your Name" bg="gray.600" border="none" focusBorderColor="teal.400" />
-            </FormControl>
-            <FormControl id="email" isRequired>
-              <FormLabel>Email</FormLabel>
-              <Input type="email" placeholder="Your Email" bg="gray.600" border="none" focusBorderColor="teal.400" />
-            </FormControl>
-            <FormControl id="message" isRequired>
-              <FormLabel>Message</FormLabel>
-              <Textarea placeholder="Your Message" bg="gray.600" border="none" focusBorderColor="teal.400" />
-            </FormControl>
-            <Button colorScheme="teal" w="full" mt={4}>
-              Send Message
-            </Button>
-          </VStack>
-        </Box>
+    <Box bg="gray.900" minH="100vh" py={[8, 12]}>
+      <Container maxW="6xl">
+        
+        <Stack
+          direction={['column', 'row']}
+          spacing={[8, 20]}
+          align="center"
+          justify="center"
+        >
+          <Box display="flex" justifyContent="center" w={['100%', '40%']}>
+            <Image
+              boxSize={["200px", "300px", "350px"]}
+              src={img}
+              alt="Contact Illustration"
+              borderRadius="full"
+              objectFit="cover"
+              mt={[1,"-180"]}
+              animation={`${colorChange} 5s infinite linear`}
+              boxShadow="lg"
+            />
+          </Box>
+          {/* Form Section */}
+          <Box w={['100%', '60%']} bg="gray.800" p={[6, 8]} borderRadius="lg" boxShadow="lg">
+            <VStack spacing={6} align="stretch">
+              <Heading as="h1" fontSize={['2xl', '3xl']} color="teal.300">
+                Contact Us
+              </Heading>
+              <Text color="gray.300" fontSize={['sm', 'md']}>
+                We'd love to hear from you. Send us your message, and we’ll get back to you.
+              </Text>
+
+              <form onSubmit={handleSubmit}>
+                <VStack spacing={4} align="stretch">
+                  <FormControl id="name" isRequired>
+                    <FormLabel color="gray.400">Name</FormLabel>
+                    <Input
+                      placeholder="Your Name"
+                      bg="gray.700"
+                      color="white"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      _placeholder={{ color: 'gray.400' }}
+                    />
+                  </FormControl>
+
+                  <FormControl id="email" isRequired>
+                    <FormLabel color="gray.400">Email</FormLabel>
+                    <Input
+                      type="email"
+                      placeholder="Your Email"
+                      bg="gray.700"
+                      color="white"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      _placeholder={{ color: 'gray.400' }}
+                    />
+                  </FormControl>
+
+                  <FormControl id="message" isRequired>
+                    <FormLabel color="gray.400">Message</FormLabel>
+                    <Textarea
+                      placeholder="Your Message"
+                      bg="gray.700"
+                      color="white"
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      _placeholder={{ color: 'gray.400' }}
+                      rows={5}
+                    />
+                  </FormControl>
+
+                  <Button
+                    type="submit"
+                    colorScheme="teal"
+                    size="md"
+                    mt={2}
+                    w="full"
+                  >
+                    Send Message
+                  </Button>
+                </VStack>
+              </form>
+            </VStack>
+          </Box>
+
+          {/* Image Section */}
+          
+        </Stack>
       </Container>
     </Box>
-    <Image
-         boxSize="350px"
-         src={img}
-         alt="Profile Image"
-         borderRadius="full"
-         objectFit="cover"
-         // boxShadow="0 0 20px rgba(255, 255, 255, 0.7)"
-         animation={`${colorChange} 5s infinite linear`}
-         boxShadow="0px 10px 15px rgba(0, 0, 0, 0.4)"
-          />
-  </HStack>
-    </>
   );
 };
 

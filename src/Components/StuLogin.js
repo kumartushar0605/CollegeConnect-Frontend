@@ -1,6 +1,18 @@
 import React, { useContext, useState } from 'react';
-import { Box, Button, Center, FormControl, FormLabel, HStack, Input, Stack, Text, useColorModeValue, useBreakpointValue, Link, useToast } from '@chakra-ui/react';
-import { FaGoogle, FaLinkedin } from 'react-icons/fa';
+import {
+  Box,
+  Button,
+  Center,
+  FormControl,
+  FormLabel,
+  Input,
+  Stack,
+  Text,
+  useColorModeValue,
+  useBreakpointValue,
+  Link,
+  useToast,
+} from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { Context } from '../index';
@@ -8,17 +20,20 @@ import { Context } from '../index';
 const MotionBox = motion(Box);
 
 const StuLogin = () => {
-  const {setIsAuthenticated}= useContext(Context)
-  const formBg = useColorModeValue('white', 'gray.700');
-  const buttonBg = useColorModeValue('blue.500', 'blue.200');
-  const buttonHoverBg = useColorModeValue('blue.600', 'blue.300');
+  const { setIsAuthenticated } = useContext(Context);
   const navigate = useNavigate();
-  const toast = useToast(); // Initialize toast
-  
-  const boxWidth = useBreakpointValue({ base: '70%', md: '500px' });
-  const boxHeight = useBreakpointValue({ base: 'auto', md: '600px' });
+  const toast = useToast();
 
-  // State to capture form inputs
+  const formBg = useColorModeValue('white', 'gray.800');
+  const inputBg = useColorModeValue('gray.50', 'gray.700');
+  const labelColor = useColorModeValue('gray.700', 'gray.300');
+  const textColor = useColorModeValue('gray.800', 'gray.200');
+  const buttonBg = useColorModeValue('blue.500', 'blue.300');
+  const buttonHoverBg = useColorModeValue('blue.600', 'blue.400');
+
+  const boxWidth = useBreakpointValue({ base: '90%', md: '450px' });
+
+  // Form state
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [semester, setSemester] = useState('');
@@ -30,14 +45,12 @@ const StuLogin = () => {
 
     try {
       const sem = semester;
+
       const res = await fetch('https://collegeconnect-backend.onrender.com/Slogin', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        credentials: 'include', // Include credentials (cookies) in the request
-
-        body: JSON.stringify({ name, email, semester, password })
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({ name, email, semester, password }),
       });
 
       const data = await res.json();
@@ -78,89 +91,94 @@ const StuLogin = () => {
   };
 
   return (
-    <Center minH="100vh" bg={useColorModeValue('gray.100', 'gray.800')}>
-      <MotionBox 
-        p={8} 
-        width={boxWidth} 
-        borderWidth={1} 
-        borderRadius="lg" 
-        height={boxHeight}
-        boxShadow="lg" 
-        mt={5}
-        bg={formBg} 
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition="0.5s"
+    <Center minH="100vh" bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
+      <MotionBox
         as="form"
+        width={boxWidth}
+        borderWidth={1}
+        borderRadius="md"
+        p={8}
+        mt={4}
+        boxShadow="xl"
+        bg={formBg}
         onSubmit={handleSubmit}
+        initial={{ opacity: 0, translateY: 30 }}
+        animate={{ opacity: 1, translateY: 0 }}
+        transition="0.5s ease-in-out"
       >
-        <Text fontSize="2xl" mb={-2} textAlign="center">Login</Text>
-        <Stack spacing={4}>
-          {/* Name Field */}
+        <Stack spacing={6}>
+          <Text fontSize={{ base: '2xl', md: '3xl' }} fontWeight="bold" textAlign="center" color="blue.500">
+            Student Login
+          </Text>
+
           <FormControl id="name" isRequired>
-            <FormLabel>Name</FormLabel>
-            <Input 
-              type="text" 
-              placeholder="Enter your name" 
-              value={name} 
-              onChange={(e) => setName(e.target.value)} 
+            <FormLabel color={labelColor}>Name</FormLabel>
+            <Input
+              bg={inputBg}
+              placeholder="Enter your name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              _placeholder={{ color: 'gray.500' }}
             />
           </FormControl>
 
-          {/* Email Field */}
           <FormControl id="email" isRequired>
-            <FormLabel>Email</FormLabel>
-            <Input 
-              type="email" 
-              placeholder="Enter your email" 
-              value={email} 
-              onChange={(e) => setEmail(e.target.value)} 
+            <FormLabel color={labelColor}>Email</FormLabel>
+            <Input
+              bg={inputBg}
+              type="email"
+              placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              _placeholder={{ color: 'gray.500' }}
             />
           </FormControl>
 
-          {/* Semester Field */}
           <FormControl id="semester" isRequired>
-            <FormLabel>Semester</FormLabel>
-            <Input 
-              type="text" 
-              placeholder="Enter your semester" 
-              value={semester} 
-              onChange={(e) => setSemester(e.target.value)} 
+            <FormLabel color={labelColor}>Semester</FormLabel>
+            <Input
+              bg={inputBg}
+              placeholder="Enter your semester"
+              value={semester}
+              onChange={(e) => setSemester(e.target.value)}
+              _placeholder={{ color: 'gray.500' }}
             />
           </FormControl>
 
-          {/* Password Field */}
           <FormControl id="password" isRequired>
-            <FormLabel>Password</FormLabel>
-            <Input 
-              type="password" 
-              placeholder="Enter your password" 
-              value={password} 
-              onChange={(e) => setPassword(e.target.value)} 
+            <FormLabel color={labelColor}>Password</FormLabel>
+            <Input
+              type="password"
+              bg={inputBg}
+              placeholder="Enter your password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              _placeholder={{ color: 'gray.500' }}
             />
           </FormControl>
 
-          {/* Login Button */}
-          <Button 
-            bg={buttonBg} 
-            color="white" 
-            size="lg" 
-            mt={2} 
+          <Button
+            color="white"
+            bg={buttonBg}
             _hover={{ bg: buttonHoverBg }}
-            transition="0.3s"
+            size="lg"
             type="submit"
+            mt={1}
           >
             Login
           </Button>
 
-         
+          {message && (
+            <Text fontSize="sm" color="red.500" textAlign="center" mt={-2}>
+              {message}
+            </Text>
+          )}
 
-          {/* Error Message Display */}
-          {message && <Text color="red.500" mt={2}>{message}</Text>}
-
-          {/* Redirect to Register */}
-          <Text textAlign="center" mt={6}>
-            New user? <Link color="blue.500" onClick={() => navigate('/res')}>Register</Link>
+          <Text textAlign="center" mt={4} fontSize="sm" color="gray.500">
+            New user?{" "}
+            <Link onClick={() => navigate('/res')} color="blue.400" fontWeight="bold" textDecoration="underline">
+              Register here
+            </Link>
           </Text>
         </Stack>
       </MotionBox>
