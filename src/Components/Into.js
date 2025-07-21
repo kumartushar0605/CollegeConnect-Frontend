@@ -494,7 +494,7 @@ const stats = [
                 animation={`${slideInUp} ${1.6 + index * 0.1}s ease-out`}
               >
                 <Icon as={stat.icon} boxSize={8} color={`${stat.color}.400`} mb={3} />
-                <Text fontSize="3xl" fontWeight="black" color="white" mb={1}>
+                <Text fontSize="2xl" fontWeight="black" color="white" mb={1}>
                   {stat.number}
                 </Text>
                 <Text fontSize="sm" color="gray.300" fontWeight="semibold">
