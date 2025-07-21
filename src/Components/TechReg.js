@@ -56,7 +56,7 @@ const TechReg = () => {
 
   // Responsive values
   const formWidth = useBreakpointValue({ base: '100%', sm: '400px', md: '450px' });
-  const imageSize = useBreakpointValue({ base: '150px', sm: '250px', md: '300px', lg: '150px' });
+  const imageSize = useBreakpointValue({ base: '150px', sm: '350px', md: '350px', lg: '150px' });
   const containerPadding = useBreakpointValue({ base: 4, md: 8 });
   const stackSpacing = useBreakpointValue({ base: 6, md: 8, lg: 12 });
   const formPadding = useBreakpointValue({ base: 6, md: 8 });
