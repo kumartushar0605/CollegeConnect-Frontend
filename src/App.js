@@ -35,7 +35,7 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`https://collegeconnect-backend.onrender.com/Tme`, {
+        const response = await axios.get(`https://collegeconnect-server.vercel.app/Tme`, {
           credentials: "include",
           withCredentials: true,
           
@@ -54,7 +54,7 @@ function App() {
 
     const fetchDataa = async () => {
       try {
-        const response = await axios.get(`https://collegeconnect-backend.onrender.com/Sme`, {
+        const response = await axios.get(`https://collegeconnect-server.vercel.app/Sme`, {
           credentials: "include",
           withCredentials: true,
         });

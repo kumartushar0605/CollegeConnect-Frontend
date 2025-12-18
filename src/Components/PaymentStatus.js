@@ -25,7 +25,7 @@ import axios from 'axios';
 
 // Actual API function
 const fetchTeacherData = async () => {
-  const teacherResponse = await axios.get('https://collegeconnect-backend.onrender.com/Tme', { 
+  const teacherResponse = await axios.get('https://collegeconnect-server.vercel.app/Tme', { 
     withCredentials: true 
   });
   return teacherResponse.data;
@@ -69,7 +69,7 @@ const PaymentStatus = () => {
       try {
         
         setImageLoading(true);
-        const response = await fetch(`https://collegeconnect-backend.onrender.com/get-image/${student?.email}`);
+        const response = await fetch(`https://collegeconnect-server.vercel.app/get-image/${student?.email}`);
         const data = await response.json();
         
         if (response.ok && data.fileUrl) {
@@ -113,7 +113,7 @@ const PaymentStatus = () => {
     const fetchStatus = async () => {
       if(status==="NO"){
          try {
-        const response = await fetch(`https://collegeconnect-backend.onrender.com/address/${student?.email}`);
+        const response = await fetch(`https://collegeconnect-server.vercel.app/address/${student?.email}`);
         const data = await response.json();
         console.log(data);
 
@@ -138,7 +138,7 @@ const PaymentStatus = () => {
   const handleVerification = async () => {
     try {
       // First API call to verify payment
-      const paymentResponse = await fetch(`https://collegeconnect-backend.onrender.com/pay/${student?.email}`, {
+      const paymentResponse = await fetch(`https://collegeconnect-server.vercel.app/pay/${student?.email}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -205,7 +205,7 @@ const PaymentStatus = () => {
       });
       const deleteTeacherImage = async () => {
         try {
-          const response = await fetch(`https://collegeconnect-backend.onrender.com/delete-image/${student?.email}`, {
+          const response = await fetch(`https://collegeconnect-server.vercel.app/delete-image/${student?.email}`, {
             method: 'DELETE',
           });
 
@@ -228,7 +228,7 @@ const PaymentStatus = () => {
   // Handle secret code submission
   const handleSubmit = async () => {
     try {
-      const response = await fetch(`https://collegeconnect-backend.onrender.com/sec/${student?.email}`, {
+      const response = await fetch(`https://collegeconnect-server.vercel.app/sec/${student?.email}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

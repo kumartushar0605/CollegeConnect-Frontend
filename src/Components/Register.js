@@ -75,7 +75,7 @@ const Register = () => {
     setMessage('');
 
     try {
-      const res = await fetch('https://collegeconnect-backend.onrender.com/register', {
+      const res = await fetch('https://collegeconnect-server.vercel.app/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

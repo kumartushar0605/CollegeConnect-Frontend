@@ -69,7 +69,7 @@ const Header = () => {
   useEffect(() => {
     const fetchTeacherData = async () => {
       try {
-        const response = await fetch('https://collegeconnect-backend.onrender.com/Tme', {
+        const response = await fetch('https://collegeconnect-server.vercel.app/Tme', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -95,7 +95,7 @@ const Header = () => {
 
   const handleLogout = async () => {
     try {
-      await fetch('https://collegeconnect-backend.onrender.com/teacher/logout', {
+      await fetch('https://collegeconnect-server.vercel.app/teacher/logout', {
         method: 'GET',
         credentials: 'include',
       });

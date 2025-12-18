@@ -37,7 +37,7 @@ const Header = () => {
   useEffect(() => {
     const fetchStudentData = async () => {
       try {
-        const res = await axios.get('https://collegeconnect-backend.onrender.com/Sme', {
+        const res = await axios.get('https://collegeconnect-server.vercel.app/Sme', {
           withCredentials: true
         });
         setStudent(res.data.user);
@@ -51,7 +51,7 @@ const Header = () => {
 
   const handleLogout = async () => {
     try {
-      await axios.get('https://collegeconnect-backend.onrender.com/student/logout', {
+      await axios.get('https://collegeconnect-server.vercel.app/student/logout', {
         withCredentials: true,
       });
       setIsAuthenticated(false);

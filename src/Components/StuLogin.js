@@ -46,7 +46,7 @@ const StuLogin = () => {
     try {
       const sem = semester;
 
-      const res = await fetch('https://collegeconnect-backend.onrender.com/Slogin', {
+      const res = await fetch('https://collegeconnect-server.vercel.app/Slogin', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',

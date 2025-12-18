@@ -13,7 +13,7 @@ import Chatwindow from './Chatwindow';
 
 // API Call
 const fetchTeacherData = async () => {
-  const teacherResponse = await axios.get('https://collegeconnect-backend.onrender.com/Tme', {
+  const teacherResponse = await axios.get('https://collegeconnect-server.vercel.app/Tme', {
     withCredentials: true
   });
   return teacherResponse.data;
@@ -50,7 +50,7 @@ const GlobalT = () => {
   const get = async () => {
     if (!student) return;
     try {
-      const response = await axios.get(`https://collegeconnect-backend.onrender.com/get/${student.email}`);
+      const response = await axios.get(`https://collegeconnect-server.vercel.app/get/${student.email}`);
       setMy(response.data);
     } catch (error) {
       console.error('Error fetching student data:', error);
@@ -64,7 +64,7 @@ const GlobalT = () => {
       const emaill = student?.email;
       const semester = student?.semester;
 
-      const response = await axios.get('https://collegeconnect-backend.onrender.com/doubtss');
+      const response = await axios.get('https://collegeconnect-server.vercel.app/doubtss');
 
       const filteredStudents = response.data.filter(
         (s) => s.semester <= semester && s.Temail === emaill && s.global === "YES"
@@ -100,7 +100,7 @@ const GlobalT = () => {
   const handleStudentSelection = async (Semail, doubt, _id) => {
     const { name, email, semester, price } = my;
     try {
-      await fetch('https://collegeconnect-backend.onrender.com/sendd', {
+      await fetch('https://collegeconnect-server.vercel.app/sendd', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, semester, Semail, price, doubt, _id }),

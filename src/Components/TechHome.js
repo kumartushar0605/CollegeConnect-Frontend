@@ -30,7 +30,7 @@ const TechHome = () => {
   const get = async () => {
     const emaill = teacherr.email;
     try {
-      const response = await axios.get(`https://collegeconnect-backend.onrender.com/get/${emaill}`);
+      const response = await axios.get(`https://collegeconnect-server.vercel.app/get/${emaill}`);
       setMy(response.data);
     } catch (error) {
       console.error('Error fetching student data:', error);
@@ -42,7 +42,7 @@ const TechHome = () => {
     try {
       const emaill = teacherr.email;
       const semester = teacherr.semester;
-      const response = await axios.get('https://collegeconnect-backend.onrender.com/doubtss');
+      const response = await axios.get('https://collegeconnect-server.vercel.app/doubtss');
 
       const filteredStudents = response.data.filter(
         (student) =>
@@ -83,7 +83,7 @@ const TechHome = () => {
   const handleStudentSelection = async (Semail, doubt, _id) => {
     const { name, email, semester, price } = my;
     try {
-      await fetch('https://collegeconnect-backend.onrender.com/sendd', {
+      await fetch('https://collegeconnect-server.vercel.app/sendd', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, semester, Semail, price, doubt, _id }),

@@ -99,7 +99,7 @@ const Home = () => {
         const fetchStudentAndSubjects = async () => {
             setLoading(true);
             try {
-                const studentResponse = await axios.get('https://collegeconnect-backend.onrender.com/Sme', { 
+                const studentResponse = await axios.get('https://collegeconnect-server.vercel.app/Sme', { 
                     withCredentials: true 
                 });
                 const student = studentResponse.data.user;
@@ -110,7 +110,7 @@ const Home = () => {
                 setName(student.name);
 
                 // Now fetch subjects for this semester
-                const subjectResponse = await axios.get(`https://collegeconnect-backend.onrender.com/subjects/${student.semester}`);
+                const subjectResponse = await axios.get(`https://collegeconnect-server.vercel.app/subjects/${student.semester}`);
                 const data = subjectResponse.data;
                 setSubjects(data.subjects || []);
             } catch (error) {
@@ -162,7 +162,7 @@ const Home = () => {
         setSubmitting(true);
 
         try {
-            const response = await axios.post('https://collegeconnect-backend.onrender.com/doubts', {
+            const response = await axios.post('https://collegeconnect-server.vercel.app/doubts', {
                 sem,
                 subject: subjects.find(sub => sub.chapters.includes(selectedChapter))?.subjectName,
                 chapter: selectedChapter,

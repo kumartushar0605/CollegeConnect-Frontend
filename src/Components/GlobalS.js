@@ -54,7 +54,7 @@ const QuestionIcon = () => (
   </svg>
 );
 const fetchStudentData = async () => {
-  const studentResponse = await axios.get('https://collegeconnect-backend.onrender.com/Sme', { 
+  const studentResponse = await axios.get('https://collegeconnect-server.vercel.app/Sme', { 
     withCredentials: true 
   });
   return studentResponse.data;
@@ -130,7 +130,7 @@ function GlobalS() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('https://collegeconnect-backend.onrender.com/doubts', {
+      const response = await fetch('https://collegeconnect-server.vercel.app/doubts', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

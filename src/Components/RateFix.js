@@ -24,7 +24,7 @@ const RateFix = () => {
     e.preventDefault();
     
     try {
-      const response = await fetch(`https://collegeconnect-backend.onrender.com/rate/${email}`, {
+      const response = await fetch(`https://collegeconnect-server.vercel.app/rate/${email}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
