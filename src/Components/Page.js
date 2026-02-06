@@ -6,15 +6,14 @@ import {
     Text, 
     VStack, 
     Container,
-    Icon,
+  
     useColorModeValue,
     Flex,
     SimpleGrid,
     Badge,
     HStack,
     useToast,
-    Divider,
-    Stack
+    Divider
 } from '@chakra-ui/react';
 import { useLocation, useNavigate } from 'react-router-dom';
 

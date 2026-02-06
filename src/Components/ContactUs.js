@@ -11,7 +11,7 @@ import {
   Button,
   Image,
   VStack,
-  HStack,
+
   useToast,
   useBreakpointValue,
   keyframes,

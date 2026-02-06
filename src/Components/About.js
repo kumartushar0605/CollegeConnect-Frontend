@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Container, Heading, Text, VStack, HStack, keyframes,Icon, Divider, Image,Flex, SimpleGrid, useColorMode } from '@chakra-ui/react';
+import { Box, Container, Heading, Text, VStack, HStack, keyframes,Icon, Divider, Image,Flex,  useColorMode } from '@chakra-ui/react';
 import { FaGlobe, FaUniversity, FaChalkboardTeacher, FaQuestionCircle, FaUserTie } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import img from '../Assests/CC.png'

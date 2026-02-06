@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import {
   Box, Button, Center, Text, IconButton, VStack,
   useDisclosure, Spinner, Image, HStack, Heading,
-  Badge, Divider, Stack, Grid
+  Badge, Divider, Stack
 } from '@chakra-ui/react';
 import axios from 'axios';
 import { FaComment, FaRedo } from 'react-icons/fa';

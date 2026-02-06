@@ -15,7 +15,6 @@ import {
     FormLabel, 
     Textarea, 
     useToast,
-    Spinner,
     Badge,
     Heading,
     Card,
@@ -37,8 +36,7 @@ import {
     SimpleGrid,
     Skeleton,
     SkeletonText,
-    IconButton,
-    Tooltip
+    IconButton
 } from '@chakra-ui/react';
 
 // Mock icons

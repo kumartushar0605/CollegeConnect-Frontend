@@ -8,19 +8,14 @@ import {
   ScaleFade,
   keyframes,
   Image,
-  Stack,
   useBreakpointValue,
   Container,
   Flex,
-  Highlight,
-  Grid,
-  GridItem,
   Icon,
   Badge,
   Divider,
   SimpleGrid,
-  Circle,
-  useColorModeValue
+  Circle
 } from '@chakra-ui/react';
 import { 
   FaGraduationCap, 

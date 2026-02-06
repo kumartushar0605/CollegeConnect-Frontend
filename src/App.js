@@ -31,11 +31,11 @@ import Subscription from './Components/Subscription';
 import Blog from './Components/Blog';
 
 function App() {
-  const {studentt,setStudentt,teacherr,setTeacherr,setIsAuthenticated,setTeIsAuthenticated} = useContext(Context);
+  const {setStudentt,setTeacherr,setIsAuthenticated,setTeIsAuthenticated} = useContext(Context);
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`https://collegeconnect-server.vercel.app/Tme`, {
+        const response = await axios.get(`https://collegeconnect-backend.onrender.com/Tme`, {
           credentials: "include",
           withCredentials: true,
           
@@ -54,7 +54,7 @@ function App() {
 
     const fetchDataa = async () => {
       try {
-        const response = await axios.get(`https://collegeconnect-server.vercel.app/Sme`, {
+        const response = await axios.get(`https://collegeconnect-backend.onrender.com/Sme`, {
           credentials: "include",
           withCredentials: true,
         });

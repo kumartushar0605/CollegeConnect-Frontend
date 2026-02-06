@@ -26,8 +26,6 @@ import { Context } from '../index';
 import img from "../Assests/CC.png";
 
 const TechReg = () => {
-  const location = useLocation();
-  const item = location.state || '';
   const { setIsAuthenticated } = useContext(Context);
   const navigate = useNavigate();
 

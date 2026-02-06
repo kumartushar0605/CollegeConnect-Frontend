@@ -9,7 +9,6 @@ import {
 import PaymentForm from './PaymentForm';
 import PaymentProcessor from './PaymentProcessor';
 import PaymentSuccess from './PaymentSuccess';
-import { paymentApi } from '../services/paymentApi';
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 

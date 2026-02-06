@@ -4,9 +4,7 @@ import {
   Button,
   Avatar,
   Text,
-  useBreakpointValue,
   useDisclosure,
-  useToast,
   useColorModeValue,
   Stack,
   HStack,
@@ -15,7 +13,6 @@ import {
   Spinner,
   Wrap,
   WrapItem,
-  Divider,
 } from '@chakra-ui/react';
 import { FaComment, FaArrowRight, FaRedo } from 'react-icons/fa';
 import { useLocation, useNavigate } from 'react-router-dom';

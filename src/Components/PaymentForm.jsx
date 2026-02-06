@@ -11,8 +11,7 @@ import {
   Flex,
   Icon,
   Spinner,
-  Stack,
-  useBreakpointValue
+  Stack
 } from '@chakra-ui/react';
 import {
   Smartphone,
