@@ -74,7 +74,10 @@ function App() {
     fetchData();
     fetchDataa();
 
-  }, [setStudentt,setTeacherr]);
+  }, [setStudentt,
+  setTeacherr,
+  setIsAuthenticated,
+  setTeIsAuthenticated]);
   return (    
    <Router>
     <Routes>

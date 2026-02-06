@@ -89,7 +89,7 @@ const GlobalT = () => {
         return () => clearInterval(interval);
       }
     }
-  }, [student, status, sem]);
+  }, [student, status, sem,fetchStudents]);
 
   const handleToggleStatus = () => {
     setStatus((prev) => (prev === 'Offline' ? 'Online' : 'Offline'));

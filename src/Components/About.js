@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Container, Heading, Text, VStack, HStack, keyframes,Icon, Divider, Image,Flex,  useColorMode } from '@chakra-ui/react';
-import { FaGlobe, FaUniversity, FaChalkboardTeacher, FaQuestionCircle, FaUserTie } from 'react-icons/fa';
+import { FaGlobe, FaUniversity, FaChalkboardTeacher, FaQuestionCircle } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import img from '../Assests/CC.png'
 import img2 from '../Assests/img2.jpg'
@@ -14,11 +14,7 @@ const About = () => {
   0% { filter: hue-rotate(0deg); }
   100% { filter: hue-rotate(360deg); }
 `;
-  // Team members data
-  const teamMembers = [
-    { name: 'Tushar', role: 'Full stack developer', imageUrl: img2 },
-    
-  ];
+
 
   return (
     <Container maxW="container.lg" p={6} centerContent>

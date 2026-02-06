@@ -50,7 +50,6 @@ const ContactUs = () => {
     100% { filter: hue-rotate(360deg); }
   `;
 
-  const isMobile = useBreakpointValue({ base: true, md: false });
 
   return (
     <Box bg="gray.900" minH="100vh" py={[8, 12]}>

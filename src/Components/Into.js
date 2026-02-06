@@ -75,10 +75,7 @@ const floatAnimation = keyframes`
   66% { transform: translateY(4px) rotate(-1deg); }
 `;
 
-const cardHover = keyframes`
-  0% { transform: translateY(0px); box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
-  100% { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
-`;
+
 
 const Intro = () => {
   const { isAuthenticated, TeIsAuthenticated } = useContext(Context);
@@ -113,7 +110,6 @@ const Intro = () => {
     isAuthenticated ? navigate('/home') : navigate('/res', { state: { stu: 'college_student' } });
   };
 
-  const schoolStudent = () => navigate('/subs');
 
   const features = [
   { icon: FaQuestionCircle, text: "Raise doubts instantly — college or global", color: "blue.400" },

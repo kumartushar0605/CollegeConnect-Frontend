@@ -6,7 +6,6 @@ import {
   keyframes,
   useColorModeValue
 } from '@chakra-ui/react';
-import PaymentForm from './PaymentForm';
 import PaymentProcessor from './PaymentProcessor';
 import PaymentSuccess from './PaymentSuccess';
 import { useLocation } from 'react-router-dom';
@@ -29,6 +28,7 @@ function CheckoutPage() {
     upiProvider: '@ybl',
   });
   const [payment, setPayment] = useState('NO');
+  console.log(payment)
 
   // Color mode values
   const bgGradient = useColorModeValue(
@@ -42,11 +42,13 @@ function CheckoutPage() {
   
   const location = useLocation();
   const { name, sec, email, _id, readyId, account, price } = location.state || {};
+ 
 
   // Check payment status and redirect if payment is YES
   useEffect(() => {
     const checkPaymentStatus = async () => {
       try {
+        
         const response = await fetch(`https://collegeconnect-backend.onrender.com/address/${email}`);
         const result = await response.json();
         
@@ -57,6 +59,10 @@ function CheckoutPage() {
           if (result.payment === 'YES') {
             navigate("/accept");
           }
+           console.log(sec);
+  console.log(readyId)
+    console.log(_id)
+
         } else {
           console.error('Failed to fetch payment status');
         }
@@ -82,10 +88,10 @@ function CheckoutPage() {
     setCurrentState('success');
   };
 
-  const handleNewPayment = () => {
-    setPaymentData({ phoneNumber: '', amount: '', transactionId: '', upiProvider: '@ybl' });
-    setCurrentState('form');
-  };
+  // const handleNewPayment = () => {
+  //   setPaymentData({ phoneNumber: '', amount: '', transactionId: '', upiProvider: '@ybl' });
+  //   setCurrentState('form');
+  // };
 
   const handleCancelPayment = () => {
     navigate("/accept");

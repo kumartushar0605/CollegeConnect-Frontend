@@ -35,9 +35,7 @@ import {
     AvatarBadge,
     SimpleGrid,
     Skeleton,
-    SkeletonText,
-    IconButton
-} from '@chakra-ui/react';
+    SkeletonText} from '@chakra-ui/react';
 
 // Mock icons
 const BookIcon = () => (
@@ -169,6 +167,7 @@ const Home = () => {
                 email,
                 global: "NO"
             });
+            console.log(response)
 
             toast({
                 title: 'Doubt Submitted Successfully! 🎉',

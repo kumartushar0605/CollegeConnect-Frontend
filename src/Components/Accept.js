@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Box,
   Button,
@@ -16,7 +16,6 @@ import {
 } from '@chakra-ui/react';
 import { FaComment, FaArrowRight, FaRedo } from 'react-icons/fa';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Context } from '../index';
 import axios from 'axios';
 import Chatwindow from './Chatwindow';
 
@@ -52,7 +51,7 @@ const DoubtBox = ({ name, email, semester, price, doubt, _id, readyId, Semail })
     fetchTeacher();
     const intervalId = setInterval(() => fetchTeacher(), 3000);
     return () => clearInterval(intervalId);
-  }, []);
+  }, [fetchTeacher]);
 
   useEffect(() => {
     if (sec && sec !== "L" && sec !== "") {
@@ -62,7 +61,7 @@ const DoubtBox = ({ name, email, semester, price, doubt, _id, readyId, Semail })
     } else if (payment === "YES") {
       setIsLoading(true);
     }
-  }, [sec]);
+  }, [sec, payment, deletee, navigate]);
 
   const updateHandler = async () => {
     try {
@@ -91,6 +90,7 @@ const DoubtBox = ({ name, email, semester, price, doubt, _id, readyId, Semail })
   };
 
   const buyHandler2 = () => {
+    console.log(teacherID)
     navigate("/checkout", {
       state: { name, sec, email, _id, readyId, account, price }
     });
