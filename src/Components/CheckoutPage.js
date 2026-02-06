@@ -48,7 +48,7 @@ function CheckoutPage() {
   useEffect(() => {
     const checkPaymentStatus = async () => {
       try {
-        const response = await fetch(`https://collegeconnect-server.vercel.app/address/${email}`);
+        const response = await fetch(`https://collegeconnect-backend.onrender.com/address/${email}`);
         const result = await response.json();
         
         if (response.ok) {

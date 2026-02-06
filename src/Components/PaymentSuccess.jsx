@@ -96,7 +96,7 @@ const PaymentSuccess = ({ Email, amount, upiProvider, transactionId, teacherId }
 
         try {
           const response = await axios.post(
-            `https://collegeconnect-server.vercel.app/upload-image/${teacherId}`,
+            `https://collegeconnect-backend.onrender.com/upload-image/${teacherId}`,
             formData,
             {
               headers: {
@@ -168,7 +168,7 @@ const PaymentSuccess = ({ Email, amount, upiProvider, transactionId, teacherId }
 
     try {
       const response = await axios.post(
-        `https://collegeconnect-server.vercel.app/upload-image/${teacherId}`,
+        `https://collegeconnect-backend.onrender.com/upload-image/${teacherId}`,
         formData,
         {
           headers: {

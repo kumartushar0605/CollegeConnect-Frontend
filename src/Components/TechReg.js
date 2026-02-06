@@ -75,7 +75,7 @@ const TechReg = () => {
     setMessage('');
 
     try {
-      const res = await fetch('https://collegeconnect-server.vercel.app/registerr', {
+      const res = await fetch('https://collegeconnect-backend.onrender.com/registerr', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

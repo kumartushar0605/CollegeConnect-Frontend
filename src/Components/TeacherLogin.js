@@ -45,7 +45,7 @@ const TeacherLogin = () => {
     e.preventDefault();
     try {
       const sem = semester;
-      const res = await fetch('https://collegeconnect-server.vercel.app/Tlogin', {
+      const res = await fetch('https://collegeconnect-backend.onrender.com/Tlogin', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',

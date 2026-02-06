@@ -64,7 +64,7 @@ const Page = () => {
           useEffect(() => {
           const fetchStudentData = async () => {
             try {
-             const studentResponse = await axios.get('https://collegeconnect-server.vercel.app/Sme', { withCredentials: true });
+             const studentResponse = await axios.get('https://collegeconnect-backend.onrender.com/Sme', { withCredentials: true });
                    const student = studentResponse.data.user;
               setStudent(student);
             } catch (err) {

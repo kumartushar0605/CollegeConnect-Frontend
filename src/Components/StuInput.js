@@ -63,7 +63,7 @@ const StuInput = () => {
     const formData = { semester, subjects: formattedSubjects };
 
     try {
-      const response = await axios.post('https://collegeconnect-server.vercel.app/update', formData);
+      const response = await axios.post('https://collegeconnect-backend.onrender.com/update', formData);
       console.log(response.data);
       alert('Data submitted successfully!');
       // Reset form after submission

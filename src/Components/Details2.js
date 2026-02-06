@@ -66,7 +66,7 @@ const Details2 = () => {
     e.preventDefault();
     
     try {
-      const response = await axios.post(`https://collegeconnect-server.vercel.app/stuForm/${email}`, {
+      const response = await axios.post(`https://collegeconnect-backend.onrender.com/stuForm/${email}`, {
         semester: formData.semester,
         collegeName:formData.collegeName,
         section: formData.classSection,

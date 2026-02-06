@@ -39,7 +39,7 @@ const DoubtBox = ({ name, email, semester, price, doubt, _id, readyId, Semail })
 
   const fetchTeacher = async () => {
     try {
-      const response = await fetch(`https://collegeconnect-server.vercel.app/address/${email}`);
+      const response = await fetch(`https://collegeconnect-backend.onrender.com/address/${email}`);
       const result = await response.json();
       setAccount(result.account);
       setPayment(result.payment);
@@ -70,7 +70,7 @@ const DoubtBox = ({ name, email, semester, price, doubt, _id, readyId, Semail })
   const updateHandler = async () => {
     try {
       setButtonClicked(true);
-      await fetch(`https://collegeconnect-server.vercel.app/status/${Semail}`, {
+      await fetch(`https://collegeconnect-backend.onrender.com/status/${Semail}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, _id }),
@@ -83,7 +83,7 @@ const DoubtBox = ({ name, email, semester, price, doubt, _id, readyId, Semail })
   const deletee = async () => {
     try {
       setButtonClicked(true);
-      await fetch(`https://collegeconnect-server.vercel.app/delete`, {
+      await fetch(`https://collegeconnect-backend.onrender.com/delete`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, _id, readyId }),
@@ -187,7 +187,7 @@ const Accept = () => {
   useEffect(() => {
     const fetchStudentData = async () => {
       try {
-        const studentResponse = await axios.get('https://collegeconnect-server.vercel.app/Sme', {
+        const studentResponse = await axios.get('https://collegeconnect-backend.onrender.com/Sme', {
           withCredentials: true
         });
         const student = studentResponse.data.user;
@@ -204,7 +204,7 @@ const Accept = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('https://collegeconnect-server.vercel.app/data', {
+        const response = await fetch('https://collegeconnect-backend.onrender.com/data', {
           credentials: "include"
         });
         const result = await response.json();

@@ -62,7 +62,7 @@ import axios from 'axios';
 
 // Actual API function
 const fetchTeacherData = async () => {
-  const teacherResponse = await axios.get('https://collegeconnect-server.vercel.app/Tme', { 
+  const teacherResponse = await axios.get('https://collegeconnect-backend.onrender.com/Tme', { 
     withCredentials: true 
   });
   return teacherResponse.data;
@@ -111,7 +111,7 @@ const TeacherProfile  = () => {
 
   const handleSaveProfile = async () => {
     try {
-      await axios.put(`https://collegeconnect-server.vercel.app/editT/${student.email}`, editedStudent, { 
+      await axios.put(`https://collegeconnect-backend.onrender.com/editT/${student.email}`, editedStudent, { 
         withCredentials: true 
       });
       setStudent(editedStudent);

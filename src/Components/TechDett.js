@@ -66,7 +66,7 @@ const TechDett = () => {
     e.preventDefault();
     
     try {
-      const response = await axios.post(`https://collegeconnect-server.vercel.app/teaForm/${email}`, {
+      const response = await axios.post(`https://collegeconnect-backend.onrender.com/teaForm/${email}`, {
         semester: formData.semester,
         collegeName: formData.collegeName,
         section: formData.classSection,
