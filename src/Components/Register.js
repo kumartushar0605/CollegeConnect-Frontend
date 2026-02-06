@@ -26,6 +26,8 @@ import { Context } from '../index';
 import img from "../Assests/CC.png";
 
 const Register = () => {
+  const location = useLocation();
+  const item = location.state || '';
   const { setIsAuthenticated } = useContext(Context);
   const navigate = useNavigate();
 
@@ -53,7 +55,6 @@ const Register = () => {
   const bgGradient = useColorModeValue('gray.50', 'gray.900');
 
   // Responsive values
-  //fix
   const formWidth = useBreakpointValue({ base: '100%', sm: '400px', md: '450px' });
   const imageSize = useBreakpointValue({ base: '150px', sm: '250px', md: '300px', lg: '150px' });
   const containerPadding = useBreakpointValue({ base: 4, md: 8 });

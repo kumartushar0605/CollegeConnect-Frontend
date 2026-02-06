@@ -62,7 +62,7 @@ const PaymentStatus = () => {
       loadStudentData();
     }, []);
 
-         console.log(showVerificationPopup)
+    const b= true;
 
   useEffect(() => {
     const fetchTeacherImage = async () => {
@@ -75,7 +75,7 @@ const PaymentStatus = () => {
         if (response.ok && data.fileUrl) {
           setTeacherImage(data.fileUrl);
           setShowVerificationPopup(true);
-         console.log(showVerificationPopup)
+         
           
           
             onOpen();

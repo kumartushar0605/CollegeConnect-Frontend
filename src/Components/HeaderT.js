@@ -4,7 +4,7 @@ import {
   Button,
   HStack,
   IconButton,
- 
+  Image,
   Menu,
   MenuButton,
   MenuList,
@@ -64,8 +64,6 @@ const Header = () => {
   const profileTT = () => {
     navigate("/profileT");
     onClose(); // Close mobile menu when navigating
-    console.log(loading)
-    console.log(teacherr);
   };
 
   useEffect(() => {

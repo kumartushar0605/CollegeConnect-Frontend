@@ -4,12 +4,12 @@ import React, { useState, useEffect, useRef } from 'react';
 import {
   Box, Text, Heading, VStack, HStack, Icon, Button,
   Image, useClipboard, useToast, Alert, AlertIcon,
-  Divider, Badge,  Circle, Progress, Skeleton,
+  Divider, Badge, Flex, Circle, Progress, Skeleton,
   Container, useColorModeValue
 } from '@chakra-ui/react';
 import {
   ArrowBackIcon, RepeatIcon, CopyIcon, CheckCircleIcon, InfoIcon, PhoneIcon,
-  TimeIcon, WarningIcon, ViewIcon, LockIcon
+  TimeIcon, WarningIcon, ViewIcon, StarIcon, LockIcon
 } from '@chakra-ui/icons';
 import QRCode from 'qrcode';
 
@@ -33,11 +33,15 @@ const PaymentProcessor = ({
   const { onCopy } = useClipboard(upiLink);
 
   // Color mode values
- 
+  const bgGradient = useColorModeValue(
+    'linear(to-br, blue.50, purple.50, pink.50)',
+    'linear(to-br, gray.800, blue.900, purple.900)'
+  );
   const cardBg = useColorModeValue('white', 'gray.700');
   const borderColor = useColorModeValue('gray.200', 'gray.600');
   const textColor = useColorModeValue('gray.700', 'gray.200');
 
+  const formatPhoneNumber = (phone) => `+91 ${phone.slice(0, 5)} ${phone.slice(5)}`;
 
   const startPaymentPolling = () => {
     if (pollingIntervalRef.current) return;
@@ -168,6 +172,20 @@ const PaymentProcessor = ({
     }
   };
 
+  const getStatusColor = () => {
+    switch (status) {
+      case 'processing':
+        return 'blue';
+      case 'qr-generated':
+        return 'green';
+      case 'waiting':
+        return 'orange';
+      case 'error':
+        return 'red';
+      default:
+        return 'blue';
+    }
+  };
 
   const progressValue = ((300 - countdown) / 300) * 100;
 

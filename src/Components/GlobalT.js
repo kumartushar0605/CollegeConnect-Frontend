@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import {
   Box, Button, Center, Text, VStack,
   useDisclosure, Spinner, Image, HStack,
@@ -8,6 +8,7 @@ import { FaRedo, FaComment } from 'react-icons/fa';
 import axios from 'axios';
 import { useLocation, useNavigate } from 'react-router-dom';
 import img from "../Assests/avatar-2092113.svg";
+import { Context } from '../index';
 import Chatwindow from './Chatwindow';
 
 // API Call
@@ -89,7 +90,7 @@ const GlobalT = () => {
         return () => clearInterval(interval);
       }
     }
-  }, [student, status, sem,fetchStudents]);
+  }, [student, status, sem]);
 
   const handleToggleStatus = () => {
     setStatus((prev) => (prev === 'Offline' ? 'Online' : 'Offline'));

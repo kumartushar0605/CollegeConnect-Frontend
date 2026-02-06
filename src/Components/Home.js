@@ -15,6 +15,7 @@ import {
     FormLabel, 
     Textarea, 
     useToast,
+    Spinner,
     Badge,
     Heading,
     Card,
@@ -35,7 +36,10 @@ import {
     AvatarBadge,
     SimpleGrid,
     Skeleton,
-    SkeletonText} from '@chakra-ui/react';
+    SkeletonText,
+    IconButton,
+    Tooltip
+} from '@chakra-ui/react';
 
 // Mock icons
 const BookIcon = () => (
@@ -167,7 +171,6 @@ const Home = () => {
                 email,
                 global: "NO"
             });
-            console.log(response)
 
             toast({
                 title: 'Doubt Submitted Successfully! 🎉',

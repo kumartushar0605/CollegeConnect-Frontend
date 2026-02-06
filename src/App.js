@@ -31,7 +31,7 @@ import Subscription from './Components/Subscription';
 import Blog from './Components/Blog';
 
 function App() {
-  const {setStudentt,setTeacherr,setIsAuthenticated,setTeIsAuthenticated} = useContext(Context);
+  const {studentt,setStudentt,teacherr,setTeacherr,setIsAuthenticated,setTeIsAuthenticated} = useContext(Context);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -74,10 +74,7 @@ function App() {
     fetchData();
     fetchDataa();
 
-  }, [setStudentt,
-  setTeacherr,
-  setIsAuthenticated,
-  setTeIsAuthenticated]);
+  }, [setStudentt,setTeacherr]);
   return (    
    <Router>
     <Routes>

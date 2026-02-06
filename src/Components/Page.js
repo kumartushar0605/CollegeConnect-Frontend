@@ -13,7 +13,8 @@ import {
     Badge,
     HStack,
     useToast,
-    Divider
+    Divider,
+    Stack
 } from '@chakra-ui/react';
 import { useLocation, useNavigate } from 'react-router-dom';
 

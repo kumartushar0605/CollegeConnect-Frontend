@@ -22,6 +22,7 @@ import { Context } from '../index';
 const Header = () => {
   const { setIsAuthenticated } = useContext(Context);
   const navigate = useNavigate();
+  const imageSrc = img;
 
   const [student, setStudent] = useState(null);
   const { isOpen, onOpen, onClose } = useDisclosure();
